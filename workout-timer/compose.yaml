@@ -1,0 +1,16 @@
+services:
+  web:
+    image: python:3.12-slim
+    working_dir: /site
+    command: python -m http.server 8080
+    volumes:
+      - .:/site:ro
+    ports:
+      - "127.0.0.1:8080:8080"
+  check:
+    image: node:22-alpine
+    working_dir: /site
+    volumes:
+      - .:/site:ro
+    profiles: [check]
+    command: sh -c "node --check app.js && node --check timer.js && node --test timer.test.js"

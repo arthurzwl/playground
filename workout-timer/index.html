@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef1e9">
+  <title>律动 · 运动计时器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header><a class="brand" href="./"><span class="brand-icon">↗</span> 律动 <span class="brand-en">TEMPO</span></a><span class="header-note">专注每一次动作</span></header>
+    <section class="intro"><p class="eyebrow">YOUR PACE. YOUR PROGRESS.</p><h1>把这一刻，交给运动。</h1><p>设定节奏，深呼吸，然后开始。</p></section>
+    <div class="layout">
+      <section class="timer-card" aria-label="运动计时">
+        <div class="card-top"><span><i class="status-dot"></i> <span id="status">准备就绪</span></span><span id="round">共 3 组</span></div>
+        <div class="dial" id="dial"><div class="dial-inner"><span id="phase">开始前等待</span><div id="time" role="timer" aria-label="剩余时间">00:05</div><span id="hint">给自己一点准备的时间</span></div></div>
+        <div id="round-dots" class="round-dots" aria-hidden="true"></div>
+        <div class="actions"><button class="primary" id="start" type="button">▶ 开始运动</button><button class="reset" id="reset" type="button" aria-label="重置计时器">↺ <span>重置</span></button></div>
+        <p class="timer-note" id="announcement" role="status" aria-live="polite">准备好了，就从这里开始。</p>
+      </section>
+      <section class="settings-card" aria-labelledby="settings-heading">
+        <div class="settings-heading"><h2 id="settings-heading">训练设置</h2><span>按你的节奏来</span></div>
+        <form id="settings">
+          <label for="wait"><span class="field-title">开始等待 <small>留点时间，调整姿势</small></span><span class="input-wrap"><input id="wait" name="wait" type="number" min="0" max="3600" step="1" value="5" required><span>秒</span></span></label>
+          <label for="work"><span class="field-title">运动时间 <small>每一组的专注时刻</small></span><span class="input-wrap"><input id="work" name="work" type="number" min="1" max="3600" step="1" value="30" required><span>秒</span></span></label>
+          <label for="rounds"><span class="field-title">运动组数 <small>一点一点，积累改变</small></span><span class="input-wrap"><input id="rounds" name="rounds" type="number" min="1" max="100" step="1" value="3" required><span>组</span></span></label>
+          <label for="rest"><span class="field-title">组间休息 <small>缓一缓，为下一组蓄力</small></span><span class="input-wrap"><input id="rest" name="rest" type="number" min="0" max="3600" step="1" value="20" required><span>秒</span></span></label>
+        </form>
+        <div class="summary"><span>预计总时长<strong id="total">2 分 15 秒</strong></span><span class="summary-icon">◷</span></div>
+        <p class="settings-note">最后一组结束后不再计入休息时间。<br>训练开始后，重置即可调整设置。</p>
+      </section>
+    </div>
+    <footer><span class="footer-line"></span> 不必一口气走很远，每一组都算数。 <span class="footer-line"></span></footer>
+  </main>
+  <script src="timer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
