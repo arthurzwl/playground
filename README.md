@@ -1,4 +1,4 @@
-# arthurzwl-playground
+# playground
 
 Vibe Coding 玩具项目集合。每个项目位于独立子目录中，子目录名即为项目名。
 
